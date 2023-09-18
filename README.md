@@ -222,7 +222,7 @@ SELECT * FROM classes WHERE age <=> 0;
  
 ## 进阶3—排序查询 ##
 ### 语法：
-```
+```sql
 SELECT 查询列表 FROM 表 【WHERE 筛选条件】 ORDER BY 排序列表 【ASC|DESC】
 ```
  
@@ -519,8 +519,6 @@ from 表1
     右外连接
     全外连接
 #交叉连接
- 
- 
 ```
 ### 示例 ###
 ```sql
