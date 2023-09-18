@@ -232,7 +232,7 @@ SELECT 查询列表 FROM 表 【WHERE 筛选条件】 ORDER BY 排序列表 【A
 -   order by 子句一般是放在查询语句的最后面，limit子句除外
  
 ### 示例：
-```
+```sql
 #降序排列
 SELECT * FROM classes ORDER BY height DESC;
  
