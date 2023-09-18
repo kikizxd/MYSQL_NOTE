@@ -16,7 +16,7 @@
 #登陆
 #本机mysql登录，cmd终端输入
 mysql -u root -p
-#密码：lanweixi
+#密码：******
  
 #退出
 exit
