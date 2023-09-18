@@ -12,7 +12,7 @@
 3. SQL：结构化查询语言，用于和数据库通信的语言，不是某个数据库软件特有的，而是几乎所有的主流数据库软件通用的语言
  
 ## 服务器启动和停止 ##
-```
+```sql
 #登陆
 #本机mysql登录，cmd终端输入
 mysql -u root -p
@@ -23,7 +23,7 @@ exit
 ```
  
 ## 常用基础命令 ##
-```
+```sql
 #一、数据库操作
 #1、查看所有数据库
 show databases;
@@ -75,7 +75,7 @@ desc classes;
 ```
 ## 进阶1—基础查询 ##
 ### 语法：
-```
+```sql
 USE 库名
 SELECT 查询列表 FROM 表名;
  
@@ -88,7 +88,7 @@ SELECT 查询列表 FROM 表名;
 2、查询的结果是一个虚拟表格
  
 ### 示例：
-```
+```sql
 #选择使用kiki这个database,库里有classes、students表格
 use kiki;
  
@@ -153,7 +153,7 @@ SELECT CONCAT(gender,',',age,',',IFNULL(height,0)) AS OUT_PUT FROM classes;
  
 ## 进阶2—条件查询 ##
 ### 语法：
-```
+```sql
 SELECT 查询列表 FROM 表名 WHERE 筛选条件;
 ```
 ### 分类：
@@ -197,7 +197,7 @@ SELECT 查询列表 FROM 表名 WHERE 筛选条件;
 -   is null 或者 is not null 可以判断null值
  
 ### 示例：
-```
+```sql
 #1.按条件表达式查询
 SELECT * FROM classes WHERE height>115;
 SELECT * FROM classes WHERE gender <> '男';
@@ -252,14 +252,14 @@ SELECT * FROM classes ORDER BY LENGTH(gender),cls_id DESC;
 隐藏了实现细节，提高代码的重用性
  
 ### 语法：
-```
+```sql
 SELECT 函数名(实参列表) 【FROM 表】;
 ```
  
 ### 分类：
 #### 一、字符函数 ####
 **length、concat、upper、lower、substr、instr、trim、lpad、rpad、replace**
-```
+```sql
 #1.length 获取参数值的字节个数
 SELECT length('张三丰hahaha');
  
@@ -300,7 +300,7 @@ SELECT replace('周芷若周芷若周芷若张无忌爱上了周芷若','周芷�
  
 #### 二、数学函数 ####
 **round、ceil、floor、truncate、mod**
-```
+```sql
 #1.round 四舍五入
 SELECT round(3.7);
 SELECT round(3.456,2);
@@ -331,7 +331,7 @@ SELECT mod(10,3);
  
 #### 三、日期函数 ####
 **now、curdate、curtime、year、month、day、hour、minute、second、str_to_date、date_format**
-```
+```sql
 #1.now 返回当前系统日期+时间
 SELECT now();
  
@@ -364,7 +364,7 @@ SELECT date_format(now(),'%Y年 %m月 %d日') AS out_put;
  
 #### 四、其它函数 ####
 **version、database、user**
-```
+```sql
 SELECT version(); #查看版本
 SELECT database(); #查看当前所在数据库
 SELECT user();  #查看当前用户
@@ -372,7 +372,7 @@ SELECT user();  #查看当前用户
  
 #### 五、流程控制函数 ####
 **if、case**
-```
+```sql
 #1.if 函数
 SELECT if(10>5,'大','小');
  
@@ -413,7 +413,7 @@ FROM classes;
  
 #### 六、统计函数 ####
 **sum、avg、max、min、count、datediff**
-```
+```sql
 #1、简单使用
 USE kiki;
 SELECT sum(height) FROM classes;
@@ -461,7 +461,7 @@ SELECT count(*) FROM classes WHERE cls_id=0;
  
 ## 进阶5—分组查询 ##
 ### 语法 ###
-```
+```sql
 SELECT column(要求出现在group by后面),group_function(column)
 FROM 表
 【WHERE 筛选条件】
@@ -472,7 +472,7 @@ group by group_by_expression
 > 注意：group by 子句支持单个字段分组，也支持多个字段分组（多个字段用逗号隔开，不区分先后顺序）
  
 ### 示例 ###
-```
+```sql
 #1.简单的分组查询
 SELECT cls_id,min(age) FROM classes group by cls_id; 
 SELECT count(*),cls_id FROM classes group by cls_id;
@@ -499,7 +499,7 @@ ORDER BY cls_id;
 当查询的字段来自于多个表时，就会用到多表查询
  
 ### 语法 ###
-```
+```sql
 select 字段，...
 from 表1
 【inner|left outer|right outer|cross】join 表2 on  连接条件
@@ -523,7 +523,7 @@ from 表1
  
 ```
 ### 示例 ###
-```
+```sql
 #连接查询学习
 use kiki;
  
